@@ -7,17 +7,16 @@
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-orange-300 to-yellow-300">
+    <header class="bg-transparent">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center">
                 <img src="/path-to-your-logo.png" alt="Logo" class="h-12">
             </div>
             <nav>
                 <ul class="flex space-x-8">
-                    <li><a href="{{ route('home') }}" class="text-white font-medium hover:text-gray-200">HOME</a></li>
-                    <li><a href="#" class="text-white font-medium hover:text-gray-200">BOOK NOW</a></li>
-                    <li><a href="{{ route('about') }}" class="text-white font-medium hover:text-gray-200">ABOUT US</a></li>
-                    <li><a href="#" class="text-white font-medium hover:text-gray-200">CONTACT US</a></li>
+                    <li><a href="{{ route('home') }}" class="text-black font-medium hover:text-gray-600">HOME</a></li>
+                    <li><a href="{{ route('about') }}" class="text-black font-medium hover:text-gray-600">ABOUT US</a></li>
+                    <li><a href="#" class="text-black font-medium hover:text-gray-600">CONTACT US</a></li>
                 </ul>
             </nav>
         </div>
