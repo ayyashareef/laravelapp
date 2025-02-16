@@ -1,93 +1,197 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About - INCODE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #000000;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .nav-link:hover, 
+        .nav-link.active {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .lets-talk-btn {
+            background: #3498db;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* About page specific styles */
+        .about-hero {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About content styles */
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .company-logo {
+            font-size: 4rem;
+            font-weight: 500;
+            margin-bottom: 4rem;
+            letter-spacing: -1px;
+        }
+
+        .main-description {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            margin-bottom: 4rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .secondary-description {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 4rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .about-content {
+                padding: 4rem 1.5rem;
+            }
+
+            .company-logo {
+                font-size: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .main-description {
+                font-size: 1.4rem;
+                margin-bottom: 3rem;
+            }
+
+            .secondary-description {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
     <header class="bg-transparent">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center">
-                <img src="/path-to-your-logo.png" alt="Logo" class="h-12">
-            </div>
-            <nav>
-                <ul class="flex space-x-8">
-                    <li><a href="{{ route('home') }}" class="text-black font-medium hover:text-gray-600">HOME</a></li>
-                    <li><a href="{{ route('about') }}" class="text-black font-medium hover:text-gray-600">ABOUT US</a></li>
-                    <li><a href="#" class="text-black font-medium hover:text-gray-600">CONTACT US</a></li>
-                </ul>
-            </nav>
+       
+            <nav class="navbar">
+        <a href="{{ route('home') }}" class="logo">INCODE</a>
+        <div class="nav-menu">
+            <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+            <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+            
+            <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">Portfolio</a>
+         
+            <a href="#" class="lets-talk-btn">Let's Talk →</a>
+        </div>
+    </nav>
         </div>
     </header>
 
     <!-- About Us Content -->
-    <div class="container mx-auto px-4 py-12">
-        <!-- Main Section -->
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">About Us</h1>
-            
-            <!-- Mission Statement -->
-            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    We are dedicated to providing exceptional service and creating memorable experiences for our customers. 
-                    Our commitment to excellence drives everything we do.
-                </p>
-            </div>
+    
+    <div class="about-content">
+        <h1 class="company-logo">INCODE</h1>
+        
+        <p class="main-description">
+            INCODE is a cutting-edge digital design studio crafting exceptional web experiences 
+            with precision and innovation. With our clean approach and balanced methodology, 
+            we create perfect solutions for branding, digital products, and web applications.
+        </p>
 
-            <!-- Our Story -->
-            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Story</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                    Founded in [Year], our journey began with a simple vision: [Your Vision Here]. 
-                    Since then, we've grown to become a trusted name in [Your Industry].
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Today, we continue to innovate and improve, always putting our customers first 
-                    and striving to exceed expectations in everything we do.
-                </p>
-            </div>
+        <p class="secondary-description">
+            Our expertise spans across multiple disciplines—UI/UX, Development, and Digital Strategy—allowing 
+            us to create dynamic digital experiences with ease. Whether you're looking for a bold corporate 
+            presence or an elegant e-commerce platform, INCODE delivers sophisticated solutions with 
+            a touch of modern innovation.
+        </p>
 
-            <!-- Values -->
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Quality</h3>
-                    <p class="text-gray-600">
-                        We maintain the highest standards in all our services and products.
-                    </p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Integrity</h3>
-                    <p class="text-gray-600">
-                        We conduct our business with honesty and transparency.
-                    </p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Innovation</h3>
-                    <p class="text-gray-600">
-                        We continuously evolve to meet changing customer needs.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Team Section -->
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Our Team</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="text-center">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" class="rounded-full mx-auto mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">John Doe</h3>
-                        <p class="text-gray-600">Founder & CEO</p>
-                    </div>
-                    <div class="text-center">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" class="rounded-full mx-auto mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Jane Smith</h3>
-                        <p class="text-gray-600">Operations Manager</p>
-                    </div>
-                </div>
-            </div>
+        <div class="copyright">
+            © [2024] [INCODE] [DIGITAL DESIGN STUDIO]
         </div>
     </div>
 </body>

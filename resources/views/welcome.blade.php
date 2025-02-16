@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Excellence</title>
+    <title>INCODE - Digital Design Excellence</title>
+    <meta name="description" content="INCODE - Where Innovation Meets Beautiful Design">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,10 +17,26 @@
         body {
             background: #000000;
             color: white;
+            background-image: url('path-to-your-moon-surface-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             min-height: 100vh;
         }
 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
         .navbar {
+            position: relative;
+            z-index: 2;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,7 +46,7 @@
         .logo {
             color: white;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
@@ -77,49 +94,60 @@
             box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
         }
 
-        .hero {
-            text-align: center;
-            padding: 8rem 5% 4rem;
+        .hero-section {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            padding: 8rem 5% 4rem;
+            text-align: center;
         }
 
-        .welcome-badge {
-            background: rgba(52, 152, 219, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
+        .introducing {
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
-            border: 1px solid rgba(52, 152, 219, 0.2);
-            color: #3498db;
+            opacity: 0.8;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(to right, #fff, #ccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 2s infinite;
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: #999;
-            margin-bottom: 2rem;
-        }
-
-        .get-started-btn {
-            background: rgba(41, 128, 185, 0.8);
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            color: white;
-            text-decoration: none;
+        .hero-title {
+            font-size: 12vw;
             font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            letter-spacing: -2px;
+            margin-bottom: 4rem;
+            text-transform: lowercase;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .feature-item {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+        }
+
+        .feature-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            opacity: 0.5;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
         }
 
         .wave-bg {
@@ -250,16 +278,16 @@
             }
         }
 
-        .navbar, .hero, .trusted-by {
+        .navbar, .hero-section, .trusted-by {
             position: relative;
             z-index: 1;
         }
 
-        .hero h1, .hero p, .navbar a {
+        .hero-title, .navbar a {
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero h1 span {
+        .hero-title span {
             color: #3498db;
             text-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
         }
@@ -319,37 +347,291 @@
         .nav-link:hover::after {
             width: 60%;
         }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            /* Navigation */
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 1000;
+                padding: 2rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .lets-talk-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            /* Hero Section */
+            .hero-title {
+                font-size: 20vw;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .introducing {
+                letter-spacing: 4px;
+                font-size: 0.8rem;
+            }
+
+            /* Background */
+            .background span {
+                transform: scale(0.7);
+            }
+
+            /* Trusted By Section */
+            .trusted-by {
+                padding: 2rem 1.5rem;
+            }
+
+            .logo-grid {
+                gap: 2rem;
+            }
+
+            .logo-grid img {
+                height: 30px;
+            }
+
+            /* Close button for mobile menu */
+            .close-menu {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        /* Small phones */
+        @media screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .get-started-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .logo-grid {
+                gap: 1.5rem;
+            }
+
+            .logo-grid img {
+                height: 25px;
+            }
+        }
+
+        .featured-works {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .view-all {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .view-all:hover {
+            transform: translateX(5px);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .work-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 9/16;
+            background: #111;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .work-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .work-item:hover .work-overlay {
+            opacity: 1;
+        }
+
+        .work-category {
+            font-size: 0.9rem;
+            color: #3498db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .work-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 0.5rem;
+        }
+
+        .work-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            align-self: flex-start;
+            padding: 0.5rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        .work-link:hover {
+            transform: translateX(5px);
+        }
     </style>
 </head>
 <body>
-    <div class="background">
-        <span></span>
-        <span></span>
-        <span></span>   
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
+    <div class="overlay"></div>
+    
     <nav class="navbar">
-        <a href="/" class="logo">INCODE</a>
+        <a href="{{ route('home') }}" class="logo">INCODE</a>
         <div class="nav-menu">
-            <a href="/" class="nav-link active">Home</a>
-            <a href="/about" class="nav-link">About</a>
-       
-            <a href="/portfolio" class="nav-link">Portfolio</a>
-     
-            <a href="/contact" class="nav-link">Contact</a>
+            <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+            <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+            
+            <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">Portfolio</a>
+         
             <a href="#" class="lets-talk-btn">Let's Talk →</a>
         </div>
     </nav>
 
-    <div class="hero">
-        <div class="welcome-badge">🎨 Transforming Your Vision </div>
-        <h1>Crafting Digital<br>Masterpieces With<br><span style="color: #3498db;">Design Excellence</span></h1>
-        <p>Transform Your Vision into Stunning Websites.<br>Where Innovation Meets Beautiful Design.</p>
-        <a href="#" class="get-started-btn">Start Your Project →</a>
-    </div>
+    <main class="hero-section">
+        <img src="path-to-your-logo.svg" alt="Logo" class="brand-logo">
+        <div class="introducing">Introducing</div>
+        <h1 class="hero-title">INCODE</h1>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-title">Type</div>
+                <div class="feature-text">Sans Serif</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Info</div>
+                <div class="feature-text">Release|2025</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Created By</div>
+                <div class="feature-text">INCODE Design</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Glyphs</div>
+                <div class="feature-text">Both Case</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Style</div>
+                <div class="feature-text">96 Glyphs</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Clean</div>
+                <div class="feature-text">Minimalist</div>
+            </div>
+        </div>
+    </main>
+
+    <section class="featured-works">
+        <div class="section-header">
+            <h2>Featured Works</h2>
+            <a href="{{ route('portfolio') }}" class="view-all">View All Projects →</a>
+        </div>
+        
+        <div class="works-grid">
+            <div class="work-item">
+                <img src="path-to-project1-image.jpg" alt="Wonder Mobile App" class="work-image">
+                <div class="work-overlay">
+                    <div class="work-content">
+                        <span class="work-category">Mobile App</span>
+                        <h3 class="work-title">Wonder</h3>
+                    </div>
+                    <a href="{{ route('portfolio') }}" class="work-link">
+                        View Case Study →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="trusted-by">
         <p>Trusted by innovative brands and creative businesses</p>
