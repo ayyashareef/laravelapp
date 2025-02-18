@@ -1,3 +1,11 @@
+
+
+@section('title', 'About')
+
+@section('styles')
+<!-- Add page-specific styles here -->
+@endsection
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

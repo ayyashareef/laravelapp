@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INCODE - Digital Design Excellence</title>
-    <meta name="description" content="INCODE - Where Innovation Meets Beautiful Design">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+@section('title', 'Home')
+
+
+@section('styles')
+<!-- Add page-specific styles here -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
 
         body {
             background: #000000;
@@ -561,78 +558,114 @@
         .work-link:hover {
             transform: translateX(5px);
         }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            padding: 2rem 5%;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-title {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     
+    <!-- Navigation bar section -->
     <nav class="navbar">
-        <a href="{{ route('home') }}" class="logo">INCODE</a>
+        <a href="{{ route('home') }}" class="logo">
+            <img src="{{ asset('images/logo.png') }}" alt="INCODE Logo" style="height: 40px; width: auto;">
+        </a>
+        <!-- Navigation menu -->
         <div class="nav-menu">
+            <!-- Home link with active class if on home route -->
             <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+            <!-- About link with active class if on about route -->
             <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
-            
+            <!-- Portfolio link with active class if on portfolio route -->
             <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">Portfolio</a>
-         
+            <!-- Let's Talk button -->
             <a href="#" class="lets-talk-btn">Let's Talk →</a>
         </div>
     </nav>
-
+    
     <main class="hero-section">
-        <img src="path-to-your-logo.svg" alt="Logo" class="brand-logo">
+      
         <div class="introducing">Introducing</div>
         <h1 class="hero-title">INCODE</h1>
         
         <div class="features-grid">
             <div class="feature-item">
-                <div class="feature-title">Type</div>
-                <div class="feature-text">Sans Serif</div>
+                <div class="feature-title">Web Design</div>
+                <div class="feature-text">UI/UX Design</div>
             </div>
             <div class="feature-item">
-                <div class="feature-title">Info</div>
-                <div class="feature-text">Release|2025</div>
+                <div class="feature-title">Branding</div>
+                <div class="feature-text">Identity Design</div>
             </div>
             <div class="feature-item">
-                <div class="feature-title">Created By</div>
-                <div class="feature-text">INCODE Design</div>
+                <div class="feature-title">Development</div>
+                <div class="feature-text">Custom Websites</div>
             </div>
             <div class="feature-item">
-                <div class="feature-title">Glyphs</div>
-                <div class="feature-text">Both Case</div>
+                <div class="feature-title">E-Commerce</div>
+                <div class="feature-text">Online Stores</div>
             </div>
             <div class="feature-item">
-                <div class="feature-title">Style</div>
-                <div class="feature-text">96 Glyphs</div>
+                <div class="feature-title">Marketing </div>
+                <div class="feature-text">Digital Strategy</div>
             </div>
             <div class="feature-item">
-                <div class="feature-title">Clean</div>
-                <div class="feature-text">Minimalist</div>
+                <div class="feature-title">Support </div>
+                <div class="feature-text">Maintenance</div>
             </div>
         </div>
     </main>
 
-    <section class="featured-works">
-        <div class="section-header">
-            <h2>Featured Works</h2>
-            <a href="{{ route('portfolio') }}" class="view-all">View All Projects →</a>
-        </div>
-        
-        <div class="works-grid">
-            <div class="work-item">
-                <img src="path-to-project1-image.jpg" alt="Wonder Mobile App" class="work-image">
-                <div class="work-overlay">
-                    <div class="work-content">
-                        <span class="work-category">Mobile App</span>
-                        <h3 class="work-title">Wonder</h3>
-                    </div>
-                    <a href="{{ route('portfolio') }}" class="work-link">
-                        View Case Study →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <div class="trusted-by">
         <p>Trusted by innovative brands and creative businesses</p>
         <div class="logo-grid">
@@ -643,5 +676,6 @@
             <img src="path-to-logo5.png" alt="Client Logo">
         </div>
     </div>
+
 </body>
 </html>

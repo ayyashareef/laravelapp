@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+
+@section('title', 'Portfolio')
+
+@section('styles')
+<!-- Add page-specific styles here -->
+@endsection
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
